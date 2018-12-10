@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z $1 ]
+    then
+    echo "ffmpegconvertfolder orignalExtension newExtension"
+    exit
+fi
+
+if [ "$1" == "--help" ]
+    then
+    echo "ffmpegconvertfolder orignalExtension newExtension"
+    exit
+fi
+
+for i in *.$1; do ffmpeg -i "$i" "${i%.*}.$2"; done
